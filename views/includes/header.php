@@ -7,3 +7,4 @@
     <title>PHP price calculator</title>
 </head>
 <body>
+    <h1>I am the header & you can see me!</h1>
