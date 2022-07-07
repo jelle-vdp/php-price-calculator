@@ -2,7 +2,6 @@
 
     declare(strict_types=1);
 
-
     class AllUsers {
         
         private array $allUsers;
@@ -16,8 +15,8 @@
             $this->allUsers = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
 
-        public function test(){
-            var_dump($this->allUsers);
+        public function getAllUsers(): array {
+            return $this->allUsers;
         }
     }
 
