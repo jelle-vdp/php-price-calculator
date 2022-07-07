@@ -1,9 +1,6 @@
 <?php
 
-    require "config/connect.php";
+    require "models/AllUsersModel.php";
 
-    $sql = "SELECT firstname FROM customer";
-    $result = mysqli_query($conn, $sql);
-    $allCustomers = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-    var_dump($allCustomers);
+    $allUsers = new AllUsers();
+    $allUsers->test();
