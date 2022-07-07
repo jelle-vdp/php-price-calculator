@@ -1,23 +1,24 @@
 <?php
-
     declare(strict_types=1);
 
     class Products {
         
-        private array $allUsers;
+        private array $allProducts;
 
         public function __construct () {
             
             require "config/connect.php";
             
-            $sql = "SELECT * FROM customer";
+            $sql = "SELECT * FROM products";
             $result = mysqli_query($conn, $sql);
-            $this->allUsers = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $this->allProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
 
-        public function getAllUsers(): array {
-            return $this->allUsers;
+        public function getAllProducts(): array {
+            return $this->allProducts;
         }
     }
 
 // NOT DONE
+// name - capitalize 1st of each string
+// pricedisplay - format to currency (in notes)

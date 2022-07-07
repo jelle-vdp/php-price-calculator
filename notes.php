@@ -21,7 +21,7 @@ page 3 - show total & discounts
 
 
 
-page 1 -- only select user form drop down
+page 1 -- only select user form drop down DONE /// after submit, change to page2
 
 
 page 2 -- name & price, add to cart button? quantity button?
