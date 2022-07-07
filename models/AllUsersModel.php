@@ -8,7 +8,7 @@
 
         public function __construct () {
             
-            require $_SERVER['DOCUMENT_ROOT'] . "/php-price-calculator/config/connect.php";
+            require "config/connect.php";
             
             $sql = "SELECT * FROM customer";
             $result = mysqli_query($conn, $sql);
