@@ -7,7 +7,7 @@
         private int $variableDiscount;
         private int $groupId;
 
-        public function __construct(int $id, string $firstname, string $lastname, int $fixed_discount, int $variable_discount, int $group_id) {
+        public function __construct(int $id, string $firstname, string $lastname, int $fixedDiscount, int $variableDiscount, int $groupId) {
             $this->id = $id;
             $this->firstname = $firstname;
             $this->lastname = $lastname;
