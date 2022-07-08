@@ -125,21 +125,10 @@ products;
 
 //////////////// VARIABLE DISCOUNTS, highest only
 SELECT
-MAX(fixed_discount)
-INTO
-#temp_variable_discount
+MAX(variable_discount)
 FROM
 customer, customer_group;
 
-
-
-
-SELECT
-MAX(fixed_discount)
-INTO
-#temp_variable_discount
-FROM
-customer, customer_group;
 
 
 
@@ -150,10 +139,28 @@ SELECT
 SUM(fixed_discount)
 FROM
 #temp_fixed_discount;)) - (SELECT
-MAX(fixed_discount)
-INTO
-#temp_variable_discount
+MAX(variable_discount)
 FROM
 customer, customer_group;)
 FROM
 products;
+
+
+
+//////////////// minus the percentage 
+SELECT
+(price -
+(SELECT
+SUM(fixed_discount)
+FROM
+#temp_fixed_discount;)) - ((price -
+(SELECT
+SUM(fixed_discount)
+FROM
+#temp_fixed_discount;)) * (SELECT
+MAX(variable_discount)
+FROM
+customer, customer_group;) / 100)
+FROM
+products;
+
