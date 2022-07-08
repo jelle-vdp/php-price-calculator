@@ -1,5 +1,5 @@
 <?php 
-    class Product {
+    class ProductModel {
         private int $id;
         private string $name;
         private int $price;

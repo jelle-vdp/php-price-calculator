@@ -1,6 +1,6 @@
 <?php
 
-    require "ProductModel.php";
+    require "ProductModelModel.php";
 
     class Products {
         
@@ -15,7 +15,7 @@
             $allProductsTemp = mysqli_fetch_all($result, MYSQLI_ASSOC);
             
             foreach ($allProductsTemp as $product) {
-                array_push($this->allProducts, new Product(intval($product['id']), $product['name'], intval($product['price'])));
+                array_push($this->allProducts, new ProductModel(intval($product['id']), $product['name'], intval($product['price'])));
             }
 
         }
