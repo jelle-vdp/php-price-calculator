@@ -7,7 +7,7 @@
 
     $baseController->initTop();
 
-    if(isset($_POST['customer']) && isset($_POST["product"])){
+    if(isset($_POST["customer"]) && isset($_POST["product"])){
         $baseController->calculatePrice();
     }
 

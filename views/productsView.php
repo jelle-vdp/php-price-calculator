@@ -5,7 +5,7 @@
 
     <label class="label" for="product">Choose a product:</label>
     <div class="select mb-4">
-        <select class=" name="product" id="product">
+        <select name="product" id="product">
             <?php foreach ($newProducts->getAllProducts() as $product) { ?>
                 <option value=<?= str_replace(" ","_",$product->getName()); ?>>
                     <?= ucfirst($product->getName()); ?>
