@@ -22,13 +22,5 @@
         public function getAllUsers(): array {
             return $this->allUsers;
         }
-
-        public function getUserFirstName($id): string {
-            return $this->allUsers[$id]["firstname"];
-        }
-
-        public function getUserLastName($id): string {
-            return $this->allUsers[$id]["lastname"];
-        }
     }
 
