@@ -28,7 +28,7 @@ page 3 - show total & discounts
 page 1 -- only select user form drop down DONE /// after submit, change to page2
 
 
-page 2 -- name & price, add to cart button? quantity button?
+page 2 -- name & price, (add to cart button? quantity button? - to do later)
 
 
 prices on page 2 will be formatted for display
@@ -125,10 +125,21 @@ products;
 
 //////////////// VARIABLE DISCOUNTS, highest only
 SELECT
-MAX(variable_discount)
+MAX(fixed_discount)
+INTO
+#temp_variable_discount
 FROM
 customer, customer_group;
 
+
+
+
+SELECT
+MAX(fixed_discount)
+INTO
+#temp_variable_discount
+FROM
+customer, customer_group;
 
 
 
@@ -139,28 +150,10 @@ SELECT
 SUM(fixed_discount)
 FROM
 #temp_fixed_discount;)) - (SELECT
-MAX(variable_discount)
+MAX(fixed_discount)
+INTO
+#temp_variable_discount
 FROM
 customer, customer_group;)
 FROM
 products;
-
-
-
-//////////////// minus the percentage 
-SELECT
-(price -
-(SELECT
-SUM(fixed_discount)
-FROM
-#temp_fixed_discount;)) - ((price -
-(SELECT
-SUM(fixed_discount)
-FROM
-#temp_fixed_discount;)) * (SELECT
-MAX(variable_discount)
-FROM
-customer, customer_group;) / 100)
-FROM
-products;
-

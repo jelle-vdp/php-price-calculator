@@ -1,9 +1,10 @@
 <?php
-    declare(strict_types=1);
+
+    require "ProductModel.php";
 
     class Products {
         
-        private array $allProducts;
+        private array $allProducts = [];
 
         public function __construct () {
             
@@ -11,14 +12,15 @@
             
             $sql = "SELECT * FROM product";
             $result = mysqli_query($conn, $sql);
-            $this->allProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $allProductsTemp = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            
+            foreach ($allProductsTemp as $product) {
+                array_push($this->allProducts, new Product(intval($product['id']), $product['name'], intval($product['price'])));
+            }
+
         }
 
         public function getAllProducts(): array {
             return $this->allProducts;
         }
     }
-
-// NOT DONE
-// name - capitalize 1st of each string
-// pricedisplay - format to currency (in notes)

@@ -1,16 +1,13 @@
 <?php
-
-    require "models/AllUsersModel.php";
-
-    $allUsers = new AllUsers();
-    
+    require "models/UsersModel.php";
+    $allUsers = new Users();
 ?>
 
 <label for="customer">Choose a customer:</label>
 <select name="customer" id="customer">
     <?php foreach ($allUsers->getAllUsers() as $user) { ?>
-        <option value=<?= $user['firstname'] . "_" . $user['lastname']; ?>>
-            <?= $user['firstname'] . " " . $user['lastname']; ?>
+        <option value=<?= $user->getFirstName() . "_" . $user->getLastName(); ?>>
+            <?= ucfirst($user->getFirstName()) . " " . ucfirst($user->getLastName());  ?>
         </option>
     <?php } ?>
 </select>

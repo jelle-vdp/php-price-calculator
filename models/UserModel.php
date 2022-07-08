@@ -11,8 +11,16 @@
             $this->id = $id;
             $this->firstname = $firstname;
             $this->lastname = $lastname;
-            $this->fixed_discount = $fixedDiscount;
-            $this->variable_discount = $variableDiscount;
-            $this->group_id = $groupId;
+            $this->fixedDiscount = $fixedDiscount;
+            $this->variableDiscount = $variableDiscount;
+            $this->groupId = $groupId;
+        }
+
+        public function getFirstName(): string {
+            return $this->firstname;
+        }
+
+        public function getLastName(): string {
+            return $this->lastname;
         }
     }
