@@ -3,11 +3,14 @@
     $allUsers = new Users();
 ?>
 
-<label for="customer">Choose a customer:</label>
-<select name="customer" id="customer">
-    <?php foreach ($allUsers->getAllUsers() as $user) { ?>
-        <option value=<?= $user->getFirstName() . "_" . $user->getLastName(); ?>>
-            <?= ucfirst($user->getFirstName()) . " " . ucfirst($user->getLastName());  ?>
-        </option>
-    <?php } ?>
-</select>
+<form method="POST">
+    <label class="label" for="customer">Choose a customer:</label>
+    <div class="select mb-4">
+        <select name="customer" id="customer">
+            <?php foreach ($allUsers->getAllUsers() as $user) { ?>
+                <option value=<?= $user->getFirstName() . "_" . $user->getLastName(); ?>>
+                    <?= ucfirst($user->getFirstName()) . " " . ucfirst($user->getLastName());  ?>
+                </option>
+            <?php } ?>
+        </select>
+    </div>

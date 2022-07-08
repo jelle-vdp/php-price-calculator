@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP price calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    <h1>I am the header & you can see me!</h1>
+    <main class="container is-max-desktop">
+        <h1 class="title has-text-info-dark">I am the header & you can see me!</h1>
     
-    <form method="POST">
