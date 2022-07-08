@@ -7,7 +7,11 @@
 ?>
 
 
-<?php foreach ($newProducts->getAllProducts() as $product) { ?>
-    <input type="checkbox" id="<?= $product['name'];?>" name="<?= $product['name'];?>" value=<?= $product['name']; ?>>
-    <label for="<?= $product['name'];?>"><?= $product['name'];?></label>
-<?php } ?>
+<label for="product">Choose a product:</label>
+<select name="product" id="product">
+    <?php foreach ($newProducts->getAllProducts() as $product) { ?>
+        <option value=<?= $product['name']; ?>>
+            <?= $product['name']; ?>
+        </option>
+    <?php } ?>
+  </select>
