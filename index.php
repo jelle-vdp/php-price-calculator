@@ -5,5 +5,12 @@
 
     $baseController = new BaseController();
 
-    $baseController->init();
+    $baseController->initTop();
+
+    if(isset($_POST['customer']) && isset($_POST["product"])){
+        $baseController->calculatePrice();
+    }
+
+    $baseController->initBottom();
+
     

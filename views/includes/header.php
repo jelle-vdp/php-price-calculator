@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
-    <main class="container is-max-desktop">
-        <h1 class="title has-text-info-dark">I am the header & you can see me!</h1>
+    <main class="container is-max-desktop mt-6 mb-6">
+        <h1 class="title has-text-info-dark">Price calculator</h1>
     

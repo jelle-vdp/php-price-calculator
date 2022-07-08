@@ -13,5 +13,5 @@
             <?php } ?>
         </select>
     </div>
-    <button class="button is-block is-info" type="submit">Submit</button>
+    <button class="button is-block is-info" type="submit">Calculate the price</button>
 </form>
