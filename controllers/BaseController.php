@@ -3,6 +3,13 @@
 
         private ProductService $productService;
 
+
+        public function __construct()
+        {
+            $this->productService = new ProductService();
+        }
+
+
         public function initTop(){
             require("views/includes/header.php");
             require("views/usersView.php");

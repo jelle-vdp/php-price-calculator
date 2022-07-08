@@ -6,11 +6,11 @@ class ProductService
     private CustomerGroupRepository $customerGroupRepository;
     private CustomerRepository $customerRepository;
 
-    public function __construct(CustomerRepository $customerRepository, CustomerGroupRepository $customerGroupRepository, ProductRepository $productRepository)
+    public function __construct()
     {
-        $this->$customerRepository = $customerRepository;
-        $this->customerGroupRepository = $customerGroupRepository;
-        $this->productRepository = $productRepository;
+        $this->customerGroupRepository = new CustomerGroupRepository();
+        $this->productRepository = new ProductRepository();
+        $this->customerRepository = new CustomerRepository();
     }
 
 
