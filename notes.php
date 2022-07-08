@@ -28,7 +28,7 @@ page 3 - show total & discounts
 page 1 -- only select user form drop down DONE /// after submit, change to page2
 
 
-page 2 -- name & price, (add to cart button? quantity button? - to do later)
+page 2 -- name & price, add to cart button? quantity button?
 
 
 prices on page 2 will be formatted for display
@@ -48,7 +48,7 @@ prices on page 2 will be formatted for display
 USER model - 1st & last name concat --- into html dropdown
 
 
-////////////////////// calculator logic: notes
+////////////////////// EXPECTED OUTCOMES
 (customer) 1 > (group_id) 2
 (customer_group) 2 > (var_discount) 13% (partent_id) 1
 (customer_group) 1 > (fixed_discount) 12
@@ -125,21 +125,10 @@ products;
 
 //////////////// VARIABLE DISCOUNTS, highest only
 SELECT
-MAX(fixed_discount)
-INTO
-#temp_variable_discount
+MAX(variable_discount)
 FROM
 customer, customer_group;
 
-
-
-
-SELECT
-MAX(fixed_discount)
-INTO
-#temp_variable_discount
-FROM
-customer, customer_group;
 
 
 
@@ -150,10 +139,33 @@ SELECT
 SUM(fixed_discount)
 FROM
 #temp_fixed_discount;)) - (SELECT
-MAX(fixed_discount)
-INTO
-#temp_variable_discount
+MAX(variable_discount)
 FROM
 customer, customer_group;)
 FROM
 products;
+
+
+
+//////////////// minus the percentage 
+SELECT
+(price -
+(SELECT
+SUM(fixed_discount)
+FROM
+#temp_fixed_discount;)) - ((price -
+(SELECT
+SUM(fixed_discount)
+FROM
+#temp_fixed_discount;)) * (SELECT
+MAX(variable_discount)
+FROM
+customer, customer_group;) / 100)
+FROM
+products;
+
+//////////////// correct selection
+
+WHERE firstname LIKE ($_POST['firstname'])
+$user['firstname']
+$_POST['customer'] (((firstname_lastname   is returned)))   /// destruct & compare these
