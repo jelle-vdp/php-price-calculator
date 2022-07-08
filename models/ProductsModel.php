@@ -9,7 +9,7 @@
             
             require "config/connect.php";
             
-            $sql = "SELECT * FROM products";
+            $sql = "SELECT * FROM product";
             $result = mysqli_query($conn, $sql);
             $this->allProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }

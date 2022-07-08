@@ -13,6 +13,10 @@ page 1 - select customer
 page 2 - select products
 page 3 - show total & discounts
 
+<!-- Main issue with products error was that we included the the ProductsModel.php file in both the productsView.php file as in index.php, it had to be done only in the View -->
+
+
+
 
 
 

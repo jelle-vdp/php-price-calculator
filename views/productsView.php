@@ -6,14 +6,8 @@
     
 ?>
 
-<form method="POST">
-<label for="products">Choose a product:</label>
-  <select name="product" id="product">
-        <?php foreach ($newProducts->getAllProducts() as $product) { ?>
-            <input type="checkbox" value=<?= $product['name']; ?>>
-                <?= $product['name']; ?>
-        </input>
-        <?php } ?>
-  </select>
-  <button type="submit">Submit</button>
-</form>
+
+<?php foreach ($newProducts->getAllProducts() as $product) { ?>
+    <input type="checkbox" id="<?= $product['name'];?>" name="<?= $product['name'];?>" value=<?= $product['name']; ?>>
+    <label for="<?= $product['name'];?>"><?= $product['name'];?></label>
+<?php } ?>
