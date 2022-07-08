@@ -3,8 +3,8 @@
     $allUsers = new Users();
 ?>
 
-<form method="POST">
-    <label class="label" for="customer">Choose a customer:</label>
+<form method="POST" class="ml-6">
+    <label class="label has-text-success-light" for="customer">Choose a customer:</label>
     <div class="select mb-4">
         <select name="customer" id="customer">
             <?php foreach ($allUsers->getAllUsers() as $user) { ?>

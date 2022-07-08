@@ -3,7 +3,7 @@
     $newProducts = new Products();  
 ?>  
 
-    <label class="label" for="product">Choose a product:</label>
+    <label class="label has-text-success-light" for="product">Choose a product:</label>
     <div class="select mb-4">
         <select name="product" id="product">
             <?php foreach ($newProducts->getAllProducts() as $product) { ?>
