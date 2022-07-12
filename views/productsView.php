@@ -9,5 +9,4 @@
         </select>
     </div>
     <button class="button is-block is-info" type="submit">Calculate the price</button>
-    <?php echo $newProducts->getSpecificPrice("mouse pad"); ?>
 </form>
