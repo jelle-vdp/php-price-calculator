@@ -17,11 +17,18 @@
             foreach ($allProductsTemp as $product) {
                 array_push($this->allProducts, new Product(intval($product['id']), $product['name'], intval($product['price'])));
             }
-
         }
 
         public function getAllProducts(): array {
             return $this->allProducts;
+        }
+
+        public function getSpecificPrice($name): int {
+            foreach ($this->allProducts as $product) {
+                if ($product->getName() == $name) {
+                    return $product->getPrice();
+                }
+            }
         }
 
         
@@ -40,7 +47,7 @@
         public function getFixedDiscounts(): int {
         
             require "config/connect.php";
-            
+
             $sql = "SELECT
             customer.fixed_discount, customer_group.fixed_discount
             INTO
@@ -60,7 +67,7 @@
         public function getVariableDiscounts(): int {
             
             require "config/connect.php";
-            
+
             $sql = "SELECT
             (price -
             (SELECT
@@ -79,4 +86,4 @@
             $result = mysqli_query($conn, $sql);
             return $variableDiscount = mysqli_fetch_all($result, MYSQLI_TYPE_LONG);
     }
-
+    }
