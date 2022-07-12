@@ -9,7 +9,7 @@
             require("views/productsView.php");
         }
 
-        public function calculatePrice(){
+        public function initPriceCalculationView(){
             $allProducts = new Products();  
             require("views/priceView.php");
         }

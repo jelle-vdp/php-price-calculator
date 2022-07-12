@@ -10,7 +10,7 @@
     $baseController->initTop();
 
     if(isset($_POST["customer"]) && isset($_POST["product"])){
-        $baseController->calculatePrice();
+        $baseController->initPriceCalculationView();
     }
 
     $baseController->initBottom();
