@@ -23,4 +23,12 @@
         public function getAllProducts(): array {
             return $this->allProducts;
         }
+
+        public function getSpecificPrice($name): int {
+            foreach ($this->allProducts as $product) {
+                if ($product->getName() == $name) {
+                    return $product->getPrice();
+                }
+            }
+        }
     }

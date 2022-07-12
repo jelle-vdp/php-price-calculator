@@ -1,8 +1,3 @@
-<?php
-    require "models/ProductsModel.php";
-    $newProducts = new Products();  
-?>  
-
     <label class="label has-text-success-light" for="product">Choose a product:</label>
     <div class="select mb-4">
         <select name="product" id="product">
@@ -14,4 +9,5 @@
         </select>
     </div>
     <button class="button is-block is-info" type="submit">Calculate the price</button>
+    <?php echo $newProducts->getSpecificPrice("mouse pad"); ?>
 </form>

@@ -1,8 +1,3 @@
-<?php
-    require "models/UsersModel.php";
-    $allUsers = new Users();
-?>
-
 <form method="POST" class="ml-6">
     <label class="label has-text-success-light" for="customer">Choose a customer:</label>
     <div class="select mb-4">
