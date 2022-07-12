@@ -23,4 +23,60 @@
         public function getAllProducts(): array {
             return $this->allProducts;
         }
+
+        
+        // echo getPrice($product->getName());    echo getPrice($_POST['product']);
+        public function getPrice($_POST['product']) {
+            
+            require "config/connect.php";
+            
+            $sql = "SELECT price FROM products WHERE name LIKE '$_POST['product']'";
+            $result = mysqli_query($conn, $sql);
+            return $originialItemPrice = mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+
+
+        // echo getFixedDiscounts();
+        public function getFixedDiscounts() {
+        
+            require "config/connect.php";
+            
+            $sql = "SELECT
+            customer.fixed_discount, customer_group.fixed_discount
+            INTO
+            #temp_fixed_discount
+            FROM
+            customer, customer_group
+            WHERE
+            fixed_discount IS NOT NULL;
+            SELECT SUM(fixed_discount) as total_fixed_discount
+            FROM #temp_fixed_discount;";
+            $result = mysqli_query($conn, $sql);
+            return $fixedDiscount = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        }
+
+
+        // echo getVariableDiscounts();
+        public function getVariableDiscounts() {
+            
+            require "config/connect.php";
+            
+            $sql = "SELECT
+            (price -
+            (SELECT
+            SUM(fixed_discount)
+            FROM
+            #temp_fixed_discount;)) - ((price -
+            (SELECT
+            SUM(fixed_discount)
+            FROM
+            #temp_fixed_discount;)) * (SELECT
+            MAX(variable_discount)
+            FROM
+            customer, customer_group;) / 100)
+            FROM
+            products;";
+            $result = mysqli_query($conn, $sql);
+            return $variableDiscount = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
