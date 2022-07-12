@@ -40,6 +40,8 @@
             $sql = "SELECT price FROM products WHERE name LIKE '$_POST['product']'";
             $result = mysqli_query($conn, $sql);
             return $originialItemPrice = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            mysqli_free_result($result);        // free results from memory >THEN
+            mysqli_close($conn);                // close connection
     }
 
 
@@ -60,6 +62,8 @@
             FROM #temp_fixed_discount;";
             $result = mysqli_query($conn, $sql);
             return $fixedDiscount = mysqli_fetch_all($result, MYSQLI_TYPE_LONG);
+            mysqli_free_result($result);        // free results from memory >THEN
+            mysqli_close($conn);                // close connection
         }
 
 
@@ -85,5 +89,7 @@
             products;";
             $result = mysqli_query($conn, $sql);
             return $variableDiscount = mysqli_fetch_all($result, MYSQLI_TYPE_LONG);
+            mysqli_free_result($result);        // free results from memory >THEN
+            mysqli_close($conn);                // close connection
     }
     }
