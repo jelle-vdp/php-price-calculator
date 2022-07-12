@@ -37,7 +37,7 @@
 
 
         // echo getFixedDiscounts();
-        public function getFixedDiscounts() {
+        public function getFixedDiscounts(): int {
         
             require "config/connect.php";
             
@@ -52,12 +52,12 @@
             SELECT SUM(fixed_discount) as total_fixed_discount
             FROM #temp_fixed_discount;";
             $result = mysqli_query($conn, $sql);
-            return $fixedDiscount = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $fixedDiscount = mysqli_fetch_all($result, MYSQLI_TYPE_LONG);
         }
 
 
-        // echo getVariableDiscounts();
-        public function getVariableDiscounts() {
+        // echo getVariableDiscounts();         // $variableDiscount
+        public function getVariableDiscounts(): int {
             
             require "config/connect.php";
             
@@ -77,6 +77,6 @@
             FROM
             products;";
             $result = mysqli_query($conn, $sql);
-            return $variableDiscount = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            return $variableDiscount = mysqli_fetch_all($result, MYSQLI_TYPE_LONG);
     }
 
